@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-
+// action string is stored seperately to easy of understanding
 const ACTION = {
     ADD_DIGIT: "add-digit",
     CHOOSE_OPERATION:"choose-operation",

@@ -8,6 +8,7 @@ import OperationButton from "./Operation";
 
 function reducer (state, {type, payload}){
 switch (type) {
+
   // values of button
   case ACTION.ADD_DIGIT :
     if(state.overWrite){
@@ -17,7 +18,11 @@ switch (type) {
         overWrite : false
       }
     }
+// checking wheather current operand value is zero and previousopearnd is value is zero
+
     if(payload.digit === "0" && state.currentOperand ==="0") {return state}
+
+    // checking wheather if there is already single "." dot then second "." dot is not allowed
     if(payload.digit === "." && state.currentOperand.includes(".")) {return state}
     
   return{
@@ -29,7 +34,7 @@ switch (type) {
 // opeartion
   case ACTION.CHOOSE_OPERATION:
 
-
+// checking wheather current operand and previousopearnd is null
     if (state.currentOperand === null && state.previousOperand === null) {
       return state
     }
@@ -60,10 +65,12 @@ switch (type) {
      }
     
 
+
  // all clear
     case ACTION.CLEAR: return{
       state : {}
     }
+
 
 // EQUAL TO 
     case ACTION.EVALUATE :
@@ -82,6 +89,7 @@ switch (type) {
       operation : null,
       currentOperand : evaluate(state)
     }
+
 
   // delete all
   case  ACTION.DELETE_DIGIT : 
@@ -112,7 +120,7 @@ switch (type) {
 
 }
 
-
+// evaluate function
 const evaluate = ({currentOperand, previousOperand, operation}) => {
    const prev = parseFloat(previousOperand)
    const current = parseFloat(currentOperand)
@@ -121,18 +129,22 @@ const evaluate = ({currentOperand, previousOperand, operation}) => {
    }
    let computation = ""
    switch (operation) {
+    // for plus operation
     case "+":
       computation = prev + current
       break;
 
+ // for minus operation
       case "-":
           computation = prev - current
           break;
 
+ // for multiple operation
       case "*":
             computation = prev * current
             break;
 
+ // for divide operation
       case "÷":
               computation = prev / current
               break;
@@ -146,9 +158,6 @@ const evaluate = ({currentOperand, previousOperand, operation}) => {
 const App = () => {
 
   const  [{currentOperand, previousOperand, operation}, dispatch ] = useReducer(reducer, {})
-
-  // dispatch({type: ACTION.ADD_DIGIT, payload:{digit:1}})
-
 
   return (
 
