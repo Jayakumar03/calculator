@@ -3,14 +3,14 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## function implement in calculator
-## 1) Plus 
-## 2) Minus
-## 3) Mulitple
-## 2) Divide
+# 1) Plus 
+# 2) Minus
+# 3) Mulitple
+# 4) Divide
 
-## 2) Extra features
-## 2) IF previous value is zero and current value zero. if pressed evalute(equal to) result is zero.
-## 2) If there is already "." (dot) in current value. then "." (dot) is not allowed
+##  Extra features
+# IF previous value is zero and current value zero. if pressed evalute(equal to) result is zero.
+#  If there is already "." (dot) in current value. then "." (dot) is not allowed
 
 ## To use the app u
 ### `npm install` to download the libaray used in the project and can be located in package.json
